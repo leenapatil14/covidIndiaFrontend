@@ -15,10 +15,10 @@ function App() {
         <NavBar/>
         <div className="container">
         <Switch>
-          <Route exact path="/" component={Home}></Route>
-          <Route exact path="/testvscases" component={TestvsCases}></Route>
-          <Route exact path="/agegroup" component={AgeGroups}></Route>
-          <Route exact path="/hospitalsbeds" component={HospitalBeds}></Route>
+          <Route exact path="/covidIndiaFrontend/" component={Home}></Route>
+          <Route exact path="/covidIndiaFrontend/testvscases" component={TestvsCases}></Route>
+          <Route exact path="/covidIndiaFrontend/agegroup" component={AgeGroups}></Route>
+          <Route exact path="/covidIndiaFrontend/hospitalsbeds" component={HospitalBeds}></Route>
         </Switch>
         </div>
         

@@ -160,19 +160,19 @@ const {classes} = this.props;
               <Divider />
               <List>
                 
-                  <ListItem button key="Home" component={Link} to="/">
+                  <ListItem button key="Home" component={Link} to="/covidIndiaFrontend/">
                     <ListItemIcon><HomeIcon /> </ListItemIcon>
                     <ListItemText classes={{primary:classes.listItemText}} primary="Home" />
                   </ListItem>
-                  <ListItem button key="Tests v/s Cases Summary" component={Link} to="/testvscases">
+                  <ListItem button key="Tests v/s Cases Summary" component={Link} to="/covidIndiaFrontend/testvscases">
                     <ListItemIcon><AssessmentIcon /> </ListItemIcon>
                     <ListItemText classes={{primary:classes.listItemText}} primary="Tests v/s Cases Summary" />
                   </ListItem>
-                  <ListItem button key="Distribution wrt Age groups" component={Link} to="/agegroup">
+                  <ListItem button key="Distribution wrt Age groups" component={Link} to="/covidIndiaFrontend/agegroup">
                     <ListItemIcon><SupervisorAccountOutlinedIcon /> </ListItemIcon>
                     <ListItemText classes={{primary:classes.listItemText}} primary="Distribution wrt Age groups" />
                   </ListItem>
-                  <ListItem button key="Hospitalizations Summary" component={Link} to="/hospitalsbeds">
+                  <ListItem button key="Hospitalizations Summary" component={Link} to="/covidIndiaFrontend/hospitalsbeds">
                     <ListItemIcon><LocalHospitalOutlinedIcon /> </ListItemIcon>
                     <ListItemText classes={{primary:classes.listItemText}} primary="Hospitalizations Summary" />
                   </ListItem>
