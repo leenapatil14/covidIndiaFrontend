@@ -2,6 +2,7 @@
   "name": "react_project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://leenapatil14.github.io/covidIndiaFrontend/",
   "dependencies": {
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",

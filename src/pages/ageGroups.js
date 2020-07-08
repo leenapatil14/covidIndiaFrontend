@@ -9,49 +9,49 @@ class AgeGroups extends Component {
         super(props);
 
     }
-    state={
-        agesData:null,
+    state = {
+        agesData: null,
     };
-    componentDidMount(){
-        axios.get('https://covid-india-data-dashboard.herokuapp.com/getAges').then(res=>{
+    componentDidMount() {
+        axios.get('https://covid-india-data-dashboard.herokuapp.com/getAges').then(res => {
             //console.log(res);
             this.setState({
-                agesData:res.data
+                agesData: res.data
             })
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
         })
     }
 
 
     render() {
-        let displayages=this.state.agesData? (
+        let displayages = this.state.agesData ? (
             <div>
                 <h4><center>Summary of confirmed cases as per Age Groups(Total individuals considered: {this.state.agesData.total})</center></h4>
-                    
-            <div className="alignCenter">
-                <Plot data={this.state.agesData.chart}
-                useResizeHandler={true}
-                responsive={true}
-                layout={this.state.agesData.layout}
-                
-                ></Plot>
+
+                <div className="alignCenter">
+                    <Plot data={this.state.agesData.chart}
+                        useResizeHandler={true}
+                        responsive={true}
+                        layout={this.state.agesData.layout}
+
+                    ></Plot>
+                </div>
+
             </div>
-            
-            </div>
-            ):
+        ) :
             <div className="padding10per">
-            <Typography color="textSecondary">Loading...</Typography>
-            <LinearProgress color="secondary" />
+                <Typography color="textSecondary">Loading...</Typography>
+                <LinearProgress color="secondary" />
             </div>;
-            return(
+        return (
             <Grid container>
-                    <Grid item sm={12} xs={12}>
-                        <div>{displayages}</div>
-                    </Grid>
-                    
+                <Grid item sm={12} xs={12}>
+                    <div>{displayages}</div>
                 </Grid>
-            );                
+
+            </Grid>
+        );
 
     }
 }

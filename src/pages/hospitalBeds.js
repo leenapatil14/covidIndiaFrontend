@@ -9,49 +9,63 @@ class HospitalBeds extends Component {
         super(props);
 
     }
-    state={
-        hospData:null,
+    state = {
+        hospData: null,
     };
-    componentDidMount(){
-        axios.get('https://covid-india-data-dashboard.herokuapp.com/getHospitals').then(res=>{
+    componentDidMount() {
+        axios.get('https://covid-india-data-dashboard.herokuapp.com/getHospitals').then(res => {
             //console.log(res);
             this.setState({
-                hospData:res.data
+                hospData: res.data
             })
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
         })
     }
 
 
     render() {
-        let displayhosps=this.state.hospData? (
+        let displayhosps = this.state.hospData ? (
             <div>
-                <h4><center>Summary of Number of total beds available v/s Confirmed cases</center></h4>
-                    
-            <div className="alignCenter">
-                <Plot data={this.state.hospData.chart}
-                useResizeHandler={true}
-                responsive={true}
-                layout={this.state.hospData.layout}
-                
-                ></Plot>
+                <h4><center>Summary of number of total beds available v/s Confirmed cases</center></h4>
+
+                <div className="alignCenter">
+                    <Plot data={this.state.hospData.chart}
+                        useResizeHandler={true}
+                        responsive={true}
+                        layout={this.state.hospData.layout}
+
+                    ></Plot>
+                </div>
+
             </div>
-            
-            </div>
-            ):
+        ) :
             <div className="padding10per">
-            <Typography color="textSecondary">Loading...</Typography>
-            <LinearProgress color="secondary" />
+                <Typography color="textSecondary">Loading...</Typography>
+                <LinearProgress color="secondary" />
             </div>;
-            return(
+        return (
             <Grid container>
-                    <Grid item sm={12} xs={12}>
-                        <div>{displayhosps}</div>
-                    </Grid>
-                    
+                <Grid item sm={12} xs={12}>
+                    <div>{displayhosps}</div>
                 </Grid>
-            );                
+                <Grid item xs={12} >
+                    <Grid container className="alignCenter">
+                        <Grid item xs={4} md={4} lg={4}></Grid>
+                        <Grid item xs={4} md={4} lg={4}>
+                            <Typography variant="body2" color="textSecondary" className="padding10">
+                                Considered Statewise number of hospital beds in Public, AYUSH, Minsitry of Defence, and Employees State Insurance Corporation Hospitals.
+                        </Typography>
+                        </Grid>
+                        <Grid item xs={4} md={4} lg={4}></Grid>
+                    </Grid>
+
+
+
+                </Grid>
+
+            </Grid>
+        );
 
     }
 }
