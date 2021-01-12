@@ -14,7 +14,7 @@ var BADNUM = require('../../constants/numerical').BADNUM;
 
 var Registry = require('../../registry');
 var Axes = require('../../plots/cartesian/axes');
-var getAxisGroup = require('../../plots/cartesian/axis_ids').getAxisGroup;
+var getAxisGroup = require('../../plots/cartesian/constraints').getAxisGroup;
 var Sieve = require('./sieve.js');
 
 /*
@@ -59,6 +59,9 @@ function crossTraceCalc(gd, plotinfo) {
     }
 
     var opts = {
+        xCat: xa.type === 'category' || xa.type === 'multicategory',
+        yCat: ya.type === 'category' || ya.type === 'multicategory',
+
         mode: fullLayout.barmode,
         norm: fullLayout.barnorm,
         gap: fullLayout.bargap,
@@ -177,6 +180,7 @@ function setGroupPositionsInOverlayMode(pa, sa, calcTraces, opts) {
         var calcTrace = calcTraces[i];
 
         var sieve = new Sieve([calcTrace], {
+            unitMinDiff: opts.xCat || opts.yCat,
             sepNegVal: false,
             overlapNoMerge: !opts.norm
         });
